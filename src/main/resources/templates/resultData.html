@@ -1,0 +1,21 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <h2>List All Uploaded Files</h2>
+    <div>
+    	<p>Searching for the query <b>${searchText}</b>  in the file <b>${fileName}</b>
+    		The expected results from the API call is:</p>
+      	
+      	<div th:each="searchWord : ${word}">
+       		<table>
+       		<tr>
+       			<td th:text="${searchWord.key}"> - found </td><td th:text="${searchWord.value}"> time(s)</td>
+       			</tr>
+       			<tr th:each="Line:${lineSearch}">
+				<td th:text="${line.value}" th:unless="${line.value}!=${word.key}"></td>
+				</tr>
+       		</table>
+       	</div>
+       	
+    </div>    
+</body>
+</html>
